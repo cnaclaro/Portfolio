@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://moodyashit.github.io/Portfolio/sitemap.xml
+Sitemap: https://cnaclaro.github.io/Portfolio/sitemap.xml
