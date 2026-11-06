@@ -47,8 +47,9 @@
 :root{--p:#ecedee;--k:#000;--b:#b8d6f2;--g:#bfe9d3;--o:#ffc9a1;--r:#f6c3d8;--m:#6c6f73;
 --d:'Archivo','Arial Narrow',Impact,sans-serif;--s:'Instrument Serif',Georgia,serif;--c:14px}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--p);color:var(--k);font:400 17px/1.6 var(--d);overflow-x:hidden}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;max-width:100%}
+main{overflow-x:hidden;overflow-x:clip}
+body{margin:0;background:var(--p);color:var(--k);font:400 17px/1.6 var(--d);overflow-x:hidden;max-width:100%;position:relative}
 a{color:inherit}
 img{max-width:100%;display:block}
 h1,h2,h3,p{margin:0}
@@ -151,6 +152,9 @@ html.js .h.in{clip-path:inset(-5% -5% -5% -5%);transition:clip-path .9s cubic-be
 .tk .wh{font-weight:800;font-size:14px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px dashed #000}
 .tk .ti{font:400 28px/1.05 var(--s)}.tk .ti button{font:inherit;text-align:left;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
 .tk .ts{font-size:14px;margin-top:8px}
+.tk .aw{margin-top:18px;padding-top:16px;border-top:2px dashed #000}
+.awd{display:block;width:100%;background:#000;color:#fff;border:0;font:700 16px/1.25 var(--d);text-align:left;padding:12px 16px;cursor:pointer;--c:8px;clip-path:polygon(var(--c) 0,100% 0,100% calc(100% - var(--c)),calc(100% - var(--c)) 100%,0 100%,0 var(--c));transition:background .15s,color .15s}
+.awd:hover{background:#fff;color:#000}
 .certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px}
 .cert{display:block;padding:0;border:0;background:none;text-align:left;font:inherit;color:inherit;cursor:zoom-in;rotate:var(--r);transition:rotate .25s,translate .25s}
 .cert:nth-child(odd){--r:-1.5deg}.cert:nth-child(even){--r:1.5deg}
@@ -307,10 +311,10 @@ html{scroll-behavior:auto}
 
     <h3 class="sub" style="margin-top:0">Education</h3>
     <div class="tix">
-      <div class="tk" style="background:var(--b)"><div class="wh">Aug 2023 — Present</div><div class="ti">FEU Alabang</div><div class="ts">Bachelor of Science in Information Technology</div></div>
-      <div class="tk" style="background:var(--o)"><div class="wh">April 16, 2026</div><div class="ti"><button type="button" data-i="2">Dean's Lister (Bronze) — 2TSY2526</button></div><div class="ts">FEU Alabang Registrar's Office</div></div>
-      <div class="tk" style="background:var(--g)"><div class="wh">Sep 2017 — Feb 2023</div><div class="ti">Green Fields Integrated School of Laguna</div><div class="ts">General Academic Strand</div></div>
-      <div class="tk" style="background:var(--r)"><div class="wh">February 1, 2023</div><div class="ti"><button type="button" data-i="3">With Honors — Senior High School</button></div><div class="ts">Green Fields Integrated School of Laguna</div></div>
+      <div class="tk" style="background:var(--b)"><div class="wh">Aug 2023 — Present</div><div class="ti">FEU Alabang</div><div class="ts">Bachelor of Science in Information Technology</div>
+        <div class="aw"><button type="button" class="awd" data-i="2">Dean's Lister (Bronze) — 2TSY2526</button><div class="ts">April 16, 2026 · FEU Alabang Registrar's Office</div></div></div>
+      <div class="tk" style="background:var(--g)"><div class="wh">Sep 2017 — Feb 2023</div><div class="ti">Green Fields Integrated School of Laguna</div><div class="ts">General Academic Strand</div>
+        <div class="aw"><button type="button" class="awd" data-i="3">With Honors — Senior High School</button><div class="ts">February 1, 2023</div></div></div>
     </div>
 
     <h3 class="sub">Certificates</h3>
