@@ -47,7 +47,7 @@
 :root{--p:#ecedee;--k:#000;--b:#b8d6f2;--g:#bfe9d3;--o:#ffc9a1;--r:#f6c3d8;--m:#6c6f73;
 --d:'Archivo','Arial Narrow',Impact,sans-serif;--s:'Instrument Serif',Georgia,serif;--c:14px}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;max-width:100%}
+html{scroll-padding-top:70px;scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;max-width:100%}
 main{overflow-x:hidden;overflow-x:clip}
 body{margin:0;background:var(--p);color:var(--k);font:400 17px/1.6 var(--d);overflow-x:hidden;max-width:100%;position:relative}
 a{color:inherit}
@@ -68,21 +68,24 @@ html.js .h.in{clip-path:inset(-5% -5% -5% -5%);transition:clip-path .9s cubic-be
 .dark .small{color:#9a9da1}
 
 /* dock */
-.dock{position:fixed;z-index:50;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;gap:4px;max-width:calc(100vw - 20px);overflow-x:auto;scrollbar-width:none}
+.bar{position:fixed;z-index:50;top:0;left:0;right:0;display:flex;align-items:center;gap:10px;padding:calc(8px + env(safe-area-inset-top,0px)) 14px 8px;background:var(--p);border-bottom:2px solid #000}
+.dock{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:auto;min-width:0}
+.dock::-webkit-scrollbar{display:none}
 .dock a{flex:none;background:var(--k);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:9px 16px;--c:8px;transition:background .15s,color .15s,transform .15s}
 .dock a:hover{transform:translateY(-3px) rotate(-2deg);background:var(--o);color:#000}
 .dock a.on{background:var(--b);color:#000}
-.mark{position:fixed;z-index:50;top:14px;left:14px;background:var(--k);color:var(--b);font:900 20px/1 var(--d);font-stretch:125%;padding:10px 14px;--c:9px;text-decoration:none;mix-blend-mode:normal}
+
+.mark{flex:none;background:var(--k);color:var(--b);font:900 20px/1 var(--d);font-stretch:125%;padding:8px 12px;--c:9px;text-decoration:none}
 .mark:hover{animation:shake .4s linear infinite}
 
 /* hero */
-.hero{min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:90px 3vw 110px;overflow:hidden;--mx:0;--my:0}
-.stage{position:relative;width:100%;max-width:1500px;display:grid;place-items:center}
-.pw{grid-area:1/1;position:relative;width:clamp(240px,31vw,470px);aspect-ratio:1;cursor:pointer}
+.hero{min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:100px 3vw 70px;overflow:hidden;--mx:0;--my:0}
+.stage{--pw:clamp(240px,31vw,470px);--fs:clamp(60px,18vw,300px);position:relative;width:100%;max-width:1500px;display:grid;place-items:center}
+.pw{grid-area:1/1;position:relative;width:var(--pw);aspect-ratio:1;cursor:pointer}
 .slab{position:absolute;inset:0;background:var(--b);transform:translate(-9%,7%);clip-path:polygon(0 12%,12% 0,100% 0,100% 88%,88% 100%,0 100%)}
-.pw img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.2);clip-path:polygon(0 12%,12% 0,100% 0,100% 88%,88% 100%,0 100%);transition:filter .3s}
-.pw:hover img{filter:grayscale(.2) contrast(1.1)}
-.name{grid-area:1/1;z-index:3;width:100%;display:flex;flex-direction:column;pointer-events:none;color:#fff;mix-blend-mode:difference;font:900 clamp(60px,19vw,310px)/.8 var(--d);font-stretch:125%;letter-spacing:-.04em}
+.pw img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.2);mix-blend-mode:multiply;clip-path:polygon(0 12%,12% 0,100% 0,100% 88%,88% 100%,0 100%);transition:filter .3s}
+@media(hover:hover){.pw:hover img{filter:grayscale(.2) contrast(1.1)}}
+.name{grid-area:1/1;z-index:3;width:100%;display:flex;flex-direction:column;pointer-events:none;color:#fff;mix-blend-mode:difference;height:calc(var(--pw) + var(--fs)*.75);justify-content:space-between;font:900 var(--fs)/.8 var(--d);font-stretch:125%;letter-spacing:-.04em}
 .name span{display:block}.name span+span{align-self:flex-end}
 .name b{display:inline-block;font-weight:inherit;pointer-events:auto;transition:transform .2s}
 .name b:hover{transform:translateY(-.12em) skewX(-12deg)}
@@ -196,7 +199,8 @@ html.js .h.in{clip-path:inset(-5% -5% -5% -5%);transition:clip-path .9s cubic-be
 @media(max-width:800px){
 section{padding:80px 20px 100px}
 .h{font-size:clamp(34px,10vw,80px);margin-bottom:30px}
-.name{font-size:17vw}
+.stage{--fs:17vw}
+.dock{margin:0 auto}.dock a{padding:8px 11px;font-size:13px}
 .ab,.g2{grid-template-columns:1fr}
 .cards{position:static;display:flex;flex-wrap:wrap;gap:8px;grid-area:2/1;padding-top:26px}
 .card{position:static;transform:none;animation:none;rotate:var(--a)}
@@ -215,16 +219,16 @@ html{scroll-behavior:auto}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<a class="mark cut" href="#top" aria-label="Back to top">C.A</a>
 <div id="cur" aria-hidden="true"></div>
 
+<div class="bar"><a class="mark cut" href="#top" aria-label="Back to top">C.A</a>
 <nav class="dock" aria-label="Sections" id="dock">
   <a class="cut" href="#about" data-sec="about">About</a>
   <a class="cut" href="#skills" data-sec="skills">Skills</a>
   <a class="cut" href="#projects" data-sec="projects">Projects</a>
   <a class="cut" href="#credentials" data-sec="credentials">Credentials</a>
   <a class="cut" href="#contact" data-sec="contact">Contact</a>
-</nav>
+</nav></div>
 
 <main id="main">
 <header class="hero" id="top">
