@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#05070a">
 <link rel="icon" id="favicon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2314243a'/%3E%3Cpath d='M32 12l5 15 15 5-15 5-5 15-5-15-15-5 15-5z' fill='%23e8cf8a'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --void:#05070a; --night:#0a1018; --panel:#0d141f;
@@ -68,14 +68,9 @@
   @keyframes moonglow{0%,100%{box-shadow:0 0 70px 18px rgba(232,207,138,.28), inset -10px -8px 18px rgba(120,105,60,.28);} 50%{box-shadow:0 0 90px 26px rgba(232,207,138,.38), inset -10px -8px 18px rgba(120,105,60,.28);}}
   .theme-hint{position:fixed; right:72px; bottom:calc(26px + env(safe-area-inset-bottom,0px)); z-index:29; display:flex; align-items:center; gap:6px; white-space:nowrap; pointer-events:none; opacity:1; transition:opacity .6s ease; animation:hintbob 2.4s ease-in-out infinite;}
   .theme-hint.hide{opacity:0;}
-  .theme-hint .msg{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.95rem; color:var(--gold); text-shadow:0 0 10px rgba(232,207,138,.5);}
+  .theme-hint .msg{font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:.95rem; color:var(--gold); text-shadow:0 0 10px rgba(232,207,138,.5);}
   .theme-hint .arrow{font-size:1.3rem; color:var(--star);}
   :root[data-theme="light"] .theme-hint .msg{text-shadow:none;}
-  .cv-btn{display:inline-block; margin-top:26px; font-size:.82rem; letter-spacing:.05em; color:var(--void); background:var(--gold); border:1px solid var(--gold); padding:11px 22px; border-radius:2px; transition:transform .3s ease, box-shadow .3s ease;}
-  .cv-btn:hover{transform:translateY(-3px); box-shadow:0 10px 24px -10px rgba(232,207,138,.5);}
-  .cv-actions{display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px;}
-  .cv-preview-btn{margin-top:26px; font-size:.82rem; letter-spacing:.05em; color:var(--lilac); background:transparent; border:1px solid var(--line); padding:10px 20px; border-radius:2px; cursor:pointer; transition:border-color .3s ease, color .3s ease, transform .3s ease;}
-  .cv-preview-btn:hover{border-color:var(--gold); color:var(--gold); transform:translateY(-3px);}
 
   .cv-sub{display:inline-block; margin-top:14px; font-size:.78rem; color:var(--lilac); border-bottom:1px solid transparent; transition:border-color .3s ease;}
   .cv-sub:hover{border-color:var(--lilac);}
@@ -151,7 +146,7 @@
   /* logo easter egg */
   #navbar .brand{cursor:pointer; user-select:none;}
   #egg-toast{position:fixed; left:50%; bottom:calc(84px + env(safe-area-inset-bottom,0px)); transform:translateX(-50%) translateY(10px); z-index:31;
-    background:var(--panel); border:1px solid var(--gold); color:var(--star); font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.9rem;
+    background:var(--panel); border:1px solid var(--gold); color:var(--star); font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:.9rem;
     padding:9px 18px; border-radius:999px; opacity:0; pointer-events:none; transition:opacity .35s ease, transform .35s ease; white-space:nowrap;}
   #egg-toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
   #egg-ball{position:fixed; top:50%; left:-40px; width:26px; height:26px; z-index:32; pointer-events:none; opacity:0;}
@@ -167,10 +162,10 @@
   html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px);}
   body{
     margin:0; background:var(--void); color:var(--star);
-    font-family:'Jost',sans-serif; font-weight:300; overflow-x:hidden;
+    font-family:'IBM Plex Sans',system-ui,sans-serif; font-weight:300; overflow-x:hidden;
     min-height:100%;
   }
-  h1,h2,h3{font-family:'Cormorant Garamond',serif; font-weight:600; margin:0;}
+  h1,h2,h3{font-family:'Newsreader',Georgia,serif; font-weight:600; margin:0;}
   a{color:var(--gold); text-decoration:none;}
   ::selection{background:var(--gold); color:var(--void);}
 
@@ -182,7 +177,7 @@
     padding:14px 28px; padding-top:calc(14px + env(safe-area-inset-top,0px));
     background:var(--nav-bg0); backdrop-filter:blur(0px); transition:background .4s ease, backdrop-filter .4s ease, box-shadow .4s ease;}
   #navbar.scrolled{background:var(--nav-bg); backdrop-filter:blur(10px); box-shadow:0 1px 0 var(--line);}
-  #navbar .brand{font-family:'Cormorant Garamond',serif; font-weight:600; font-size:1.3rem; color:var(--gold); letter-spacing:.05em;}
+  #navbar .brand{font-family:'Newsreader',Georgia,serif; font-weight:600; font-size:1.3rem; color:var(--gold); letter-spacing:.05em;}
   #navbar .nav-links{display:flex; gap:18px; overflow-x:auto; scrollbar-width:none; max-width:72vw;}
   #navbar .nav-links::-webkit-scrollbar{display:none;}
   #navbar .nav-links a{position:relative; font-size:.78rem; letter-spacing:.04em; color:var(--mute); white-space:nowrap; padding-bottom:3px; transition:color .3s ease;}
@@ -217,7 +212,7 @@
   }
   @keyframes flicker{0%,100%{opacity:.35;} 50%{opacity:.75;}}
   .bubble{position:absolute; bottom:100%; left:50%; transform:translate(-50%,8px); margin-bottom:10px;
-    background:var(--panel); border:1px solid var(--gold); color:var(--star); font-family:'Cormorant Garamond',serif;
+    background:var(--panel); border:1px solid var(--gold); color:var(--star); font-family:'Newsreader',Georgia,serif;
     font-style:italic; font-size:.85rem; max-width:46vw; width:max-content; padding:8px 14px; border-radius:2px;
     opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; z-index:5;}
   .bubble::after{content:""; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:6px solid transparent; border-top-color:var(--gold);}
@@ -225,7 +220,7 @@
 
   .fairy-hint{position:absolute; top:20%; left:15%; z-index:3; text-align:center; opacity:1; transition:opacity .6s ease; animation:hintbob 2.4s ease-in-out infinite;}
   .fairy-hint.hide{opacity:0; pointer-events:none;}
-  .fairy-hint .msg{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.95rem; color:var(--gold); white-space:nowrap; text-shadow:0 0 10px rgba(232,207,138,.5);}
+  .fairy-hint .msg{font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:.95rem; color:var(--gold); white-space:nowrap; text-shadow:0 0 10px rgba(232,207,138,.5);}
   .fairy-hint .arrow{font-size:1.4rem; margin-top:2px;}
   @keyframes hintbob{0%,100%{transform:translateY(0);} 50%{transform:translateY(-9px);}}
 
@@ -244,7 +239,7 @@
   .ladybug-hint{display:none; position:absolute; top:14px; left:6%; z-index:3; text-align:center; opacity:1; transition:opacity .6s ease; animation:hintbob 2.4s ease-in-out infinite;}
   :root[data-theme="light"] .ladybug-hint{display:block;}
   .ladybug-hint.hide{opacity:0; pointer-events:none;}
-  .ladybug-hint .msg{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.95rem; color:var(--gold); white-space:nowrap;}
+  .ladybug-hint .msg{font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:.95rem; color:var(--gold); white-space:nowrap;}
   .ladybug-hint .arrow{font-size:1.3rem; margin-top:2px;}
 
   .wrap{position:relative; z-index:1; max-width:720px; margin:0 auto; padding:0 28px;}
@@ -259,7 +254,7 @@
   .eyebrow{letter-spacing:.3em; font-size:.7rem; color:var(--lilac); margin-bottom:18px; opacity:.85;}
   .hero h1{font-size:clamp(2.6rem,9vw,5rem); line-height:1; background:linear-gradient(180deg,var(--h1-top) 0%,var(--gold) 70%); -webkit-background-clip:text; background-clip:text; color:transparent; animation:rise 1.4s cubic-bezier(.2,.9,.3,1) both;}
   @keyframes rise{from{opacity:0; transform:translateY(26px);} to{opacity:1; transform:translateY(0);}}
-  .hero p.role{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.3rem; color:var(--lilac); margin-top:12px; animation:rise 1.4s .2s cubic-bezier(.2,.9,.3,1) both;}
+  .hero p.role{font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:1.3rem; color:var(--lilac); margin-top:12px; animation:rise 1.4s .2s cubic-bezier(.2,.9,.3,1) both;}
   .hero .loc{margin-top:20px; font-size:.85rem; color:var(--mute); animation:rise 1.4s .35s cubic-bezier(.2,.9,.3,1) both;}
   .ojt-badge{display:inline-flex; align-items:center; gap:7px; margin-top:16px; padding:6px 14px; border:1px solid var(--gold); border-radius:999px; font-size:.72rem; letter-spacing:.06em; color:var(--gold); animation:rise 1.4s .45s cubic-bezier(.2,.9,.3,1) both;}
   .ojt-badge::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--gold); box-shadow:0 0 8px 1px var(--gold); animation:pulse-dot 2s ease-in-out infinite;}
@@ -300,13 +295,13 @@
   .card h3{font-size:1.05rem; color:var(--star); margin-bottom:4px;}
   .card .lvl{font-size:.75rem; color:var(--gold); letter-spacing:.05em;}
   .chip-group{margin-top:34px;}
-  .chip-group h3{font-family:'Jost',sans-serif; font-weight:400; font-size:.7rem; letter-spacing:.25em; color:var(--lilac); text-transform:uppercase; margin-bottom:14px;}
+  .chip-group h3{font-family:'IBM Plex Sans',system-ui,sans-serif; font-weight:400; font-size:.7rem; letter-spacing:.25em; color:var(--lilac); text-transform:uppercase; margin-bottom:14px;}
   .chips{display:flex; flex-wrap:wrap; gap:10px;}
   .chip{font-size:.85rem; color:var(--star); background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:7px 16px; transition:transform .3s ease, border-color .3s ease, color .3s ease;}
   .chip:hover{transform:translateY(-2px); border-color:var(--gold); color:var(--gold);}
   .btn-wrap{position:relative; display:inline-block;}
   .inline-fairy{z-index:4;}
-  .zzz{position:absolute; top:-8px; right:-14px; font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--lilac);
+  .zzz{position:absolute; top:-8px; right:-14px; font-family:'Newsreader',Georgia,serif; font-style:italic; color:var(--lilac);
     font-size:.7rem; opacity:0; animation:zzzfloat 3.2s ease-in-out infinite;}
   @keyframes zzzfloat{0%{opacity:0; transform:translateY(2px);} 25%{opacity:.9;} 70%{opacity:.3;} 100%{opacity:0; transform:translateY(-16px);}}
 
@@ -388,7 +383,7 @@
     opacity:0; transition:opacity .4s ease; animation:repo-orbit 2.6s linear infinite; z-index:0; pointer-events:none;}
   .repo-badge:hover::before{opacity:1;}
   @keyframes repo-orbit{ to{ transform:rotate(360deg); } }
-  .contact-end .signoff{font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--lilac); margin-top:36px; font-size:1rem;}
+  .contact-end .signoff{font-family:'Newsreader',Georgia,serif; font-style:italic; color:var(--lilac); margin-top:36px; font-size:1rem;}
 
   @media (max-width:560px){ .grid{grid-template-columns:1fr;} }
   @media (prefers-reduced-motion: reduce){
@@ -462,7 +457,7 @@
     p, span, div, li{color:#222 !important;}
     .proj, .cert, section{background:#fff !important; border-color:#ccc !important;}
     .proj::after{display:none !important;}
-    .cv-btn, .cv-sub, .play-btn, .cv-preview-btn{display:none !important;}
+    .cv-split, .cv-sub, .play-btn{display:none !important;}
     .phone{filter:none !important;}
     section{page-break-inside:avoid;}
     /* show every project regardless of the on-screen filter selection */
@@ -473,6 +468,41 @@
     .repo-badge[href]::after{content:" (" attr(href) ")"; font-size:.7em; word-break:break-all;}
     .contact-end .links a[href^="mailto:"]::after{content:" (" attr(href) ")"; font-size:.7em;}
   }
+
+  /* --- plain pass: flat surfaces, no glows, no gradient text, no hover lift --- */
+  .hero h1{background:none; -webkit-background-clip:border-box; background-clip:border-box; color:var(--star); font-weight:500; letter-spacing:-.01em;}
+  .eyebrow{letter-spacing:.02em; font-size:.85rem; opacity:1; color:var(--mute);}
+  .hero p.role{font-style:normal; font-size:1.1rem; color:var(--soft);}
+  section h2{font-weight:500; letter-spacing:-.005em;}
+  .card,.proj,.chip,.links a,.cv-op,.play-btn{box-shadow:none !important;}
+  .card:hover,.proj:hover,.chip:hover,.links a:hover,.cv-op:hover{transform:none !important;}
+  .card{border-radius:0;}
+  .chip,.proj-filters button,.stack-tags span{border-radius:3px;}
+  .proj::after{display:none;}
+  .tl-item::before{box-shadow:none; animation:none; border-radius:0; width:7px; height:7px; left:-26px;}
+  .learning-line .dot,.ojt-badge::before{box-shadow:none; animation:none;}
+  .theme-hint .msg,.fairy-hint .msg{text-shadow:none; font-style:normal; font-size:.85rem;}
+  #scroll-progress{background:var(--gold); box-shadow:none;}
+  .moon{animation:none; box-shadow:0 0 0 1px rgba(232,207,138,.15), inset -10px -8px 18px rgba(120,105,60,.28);}
+  .sun{animation:none; box-shadow:none;}
+  .stack-tags:hover .tag-constellation line,.stack-tags:hover .tag-constellation circle{opacity:0; animation:none;}
+  .chip-group h3{letter-spacing:.02em; text-transform:none; font-size:.85rem; color:var(--mute);}
+  .tl-item .sub,.proj .stack{letter-spacing:0;}
+  .signoff{font-style:normal; font-size:.85rem; color:var(--mute);}
+
+  /* resume: one segmented control, CV on the left, ATS on the right */
+  .cv-split{display:inline-grid; grid-template-columns:1fr 1fr; margin-top:26px; border:1px solid var(--line); background:var(--panel); text-align:left; max-width:100%;}
+  .cv-half{padding:14px 16px 12px; display:flex; flex-direction:column; gap:10px; min-width:230px;}
+  .cv-half + .cv-half{border-left:1px solid var(--line);}
+  .cv-label{font-size:.9rem; color:var(--star); font-weight:500;}
+  .cv-label small{display:block; font-size:.72rem; font-weight:400; color:var(--mute); margin-top:2px;}
+  .cv-ops{display:flex; gap:8px;}
+  .cv-op{flex:1; text-align:center; font:inherit; font-size:.8rem; padding:8px 10px; cursor:pointer; border:1px solid var(--line); background:transparent; color:var(--lilac); border-radius:0; transition:background .2s ease, color .2s ease, border-color .2s ease;}
+  .cv-op:first-child{background:var(--gold); border-color:var(--gold); color:var(--on-gold);}
+  .cv-op:hover{border-color:var(--gold); color:var(--gold);}
+  .cv-op:first-child:hover{background:var(--hover-bg); color:var(--gold);}
+  .cv-op:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+  @media (max-width:560px){ .cv-split{grid-template-columns:1fr; display:grid;} .cv-half{min-width:0;} .cv-half + .cv-half{border-left:0; border-top:1px solid var(--line);} }
 </style>
 <script>try{
   var t=localStorage.getItem("theme");
@@ -493,7 +523,7 @@
     "@type": "CollegeOrUniversity",
     "name": "FEU Alabang"
   },
-  "email": "mailto:coleenaclaro@gmaill.com",
+  "email": "mailto:coleenaclaro@gmail.com",
   "sameAs": [
     "https://www.linkedin.com/in/coleen-aclaro-4857a8381",
     "https://github.com/cnaclaro"
@@ -576,7 +606,7 @@
   <div class="spark" style="top:14%; left:12%;">✦</div>
   <div class="spark" style="top:70%; left:85%; animation-delay:1.2s;">✧</div>
   <div class="spark" style="top:22%; left:82%; animation-delay:2.4s;">✦</div>
-  <span class="eyebrow">welcome to my little corner of the sky</span>
+  <span class="eyebrow">portfolio</span>
   <h1>Coleen&nbsp;Aclaro</h1>
   <p class="role">BS Information Technology · Web &amp; Mobile Developer</p>
   <p class="loc">Santa Rosa City, Philippines</p>
@@ -592,13 +622,12 @@
     <div class="msg">Psst — the ladybugs talk too ✦</div>
     <div class="arrow">↖︎</div>
   </div>
-  <span class="tag">ABOUT</span>
   <div class="about-row">
     <div class="portrait-wrap">
       <img class="portrait" alt="Portrait of Coleen Aclaro" src="images/portrait.jpg" loading="lazy" width="480" height="480">
     </div>
     <div>
-      <h2>The story so far</h2>
+      <h2>About</h2>
       <p>I'm currently in my 4th year of college. I went to GFIS from Grade 7 all the way to Grade 12, so I've basically been in school forever at this point. I like reading — especially really long books — and I can easily get lost in a good story for hours. Right now, I'm just trying to survive my last year of college and hopefully make it to graduation in one piece.</p>
       <p class="learning-line"><span class="dot"></span>Currently learning: refining Baylo's AI matching · last updated Sep 2026</p>
       <a class="cv-sub" href="https://paraverse.feutech.edu.ph/briefcase/profile/57000013202A" target="_blank" rel="noopener">View Briefcase profile ↗︎</a>
@@ -607,8 +636,7 @@
 </section>
 
 <section class="fade-up" id="skills">
-  <span class="tag">SKILLS</span>
-  <h2>What I work with</h2>
+  <h2>Skills</h2>
   <div class="grid">
     <div class="card"><h3>Web Development</h3><span class="lvl">Expert</span>
       <div class="fairy inline-fairy" style="top:-18px; right:-14px; --fs:36px; --fd:6s;" data-creature="fairy-5">
@@ -649,8 +677,7 @@
   <div class="ladybug" style="left:78%; --ls:16px; --ld:11s; --ldl:2s;" data-creature="ladybug-2">
     <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="36" rx="20" ry="16" fill="#d43f2f"/><path d="M32 20a20 16 0 0 0-20 16h40a20 16 0 0 0-20-16z" fill="#2a2540"/><line x1="32" y1="20" x2="32" y2="52" stroke="#2a2540" stroke-width="2"/><circle cx="22" cy="34" r="3" fill="#2a2540"/><circle cx="24" cy="46" r="2.6" fill="#2a2540"/><circle cx="42" cy="34" r="3" fill="#2a2540"/><circle cx="40" cy="46" r="2.6" fill="#2a2540"/><circle cx="26" cy="17" r="2.2" fill="#2a2540"/><circle cx="38" cy="17" r="2.2" fill="#2a2540"/></svg>
   </div>
-  <span class="tag">EDUCATION &amp; AWARDS</span>
-  <h2>Where I've been</h2>
+  <h2>Education &amp; awards</h2>
   <div class="timeline">
     <div class="tl-item">
       <div class="when">Aug 2023 — Present</div>
@@ -679,8 +706,7 @@
   <div class="ladybug" style="left:40%; --ls:20px; --ld:16s; --ldl:.8s;" data-creature="ladybug-3">
     <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="36" rx="20" ry="16" fill="#d43f2f"/><path d="M32 20a20 16 0 0 0-20 16h40a20 16 0 0 0-20-16z" fill="#2a2540"/><line x1="32" y1="20" x2="32" y2="52" stroke="#2a2540" stroke-width="2"/><circle cx="22" cy="34" r="3" fill="#2a2540"/><circle cx="24" cy="46" r="2.6" fill="#2a2540"/><circle cx="42" cy="34" r="3" fill="#2a2540"/><circle cx="40" cy="46" r="2.6" fill="#2a2540"/><circle cx="26" cy="17" r="2.2" fill="#2a2540"/><circle cx="38" cy="17" r="2.2" fill="#2a2540"/></svg>
   </div>
-  <span class="tag">PROJECTS</span>
-  <h2>Things I've made</h2>
+  <h2>Projects</h2>
   <div class="proj-filters" id="proj-filters">
     <button type="button" class="active" data-filter="all">All</button>
     <button type="button" data-filter="game">Game</button>
@@ -725,7 +751,6 @@
 </section>
 
 <section class="fade-up" id="certifications">
-  <span class="tag">CERTIFICATIONS</span>
   <h2>Certificates</h2>
   <div class="grid">
     <div class="cert" id="cert-cyberops" data-cert-target="cert-cyberops-img" tabindex="0" role="button" aria-label="View CyberOps Associate certificate"><img class="cert-thumb" src="certs/cyberops-associate.jpg" alt="" loading="lazy"><div class="plus">↗︎</div><div class="name">CyberOps Associate</div><div class="issuer">Cisco Networking Academy · Jul 10, 2026</div><img id="cert-cyberops-img" src="certs/cyberops-associate.jpg" alt="" style="display:none;"></div>
@@ -746,8 +771,7 @@
 </section>
 
 <section class="seminars fade-up" id="seminars">
-  <span class="tag">SEMINARS</span>
-  <h2>Talks I've attended</h2>
+  <h2>Seminars</h2>
   <ul>
     <li><a class="s-title" href="#cert-seminar-1">AI and Robotics: Extension of human intellect and its ethical consideration</a><div class="s-meta">FEU Alabang · Jun 2024</div></li>
     <li><a class="s-title" href="#cert-seminar-2">Kotlin Essentials: Transforming Your Coding Experience</a><div class="s-meta">Institute of Computer Engineers of the Philippines · Jun 2024</div></li>
@@ -760,8 +784,7 @@
   <div class="ladybug" style="left:16%; --ls:18px; --ld:13s; --ldl:1.6s;" data-creature="ladybug-4">
     <svg viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="36" rx="20" ry="16" fill="#d43f2f"/><path d="M32 20a20 16 0 0 0-20 16h40a20 16 0 0 0-20-16z" fill="#2a2540"/><line x1="32" y1="20" x2="32" y2="52" stroke="#2a2540" stroke-width="2"/><circle cx="22" cy="34" r="3" fill="#2a2540"/><circle cx="24" cy="46" r="2.6" fill="#2a2540"/><circle cx="42" cy="34" r="3" fill="#2a2540"/><circle cx="40" cy="46" r="2.6" fill="#2a2540"/><circle cx="26" cy="17" r="2.2" fill="#2a2540"/><circle cx="38" cy="17" r="2.2" fill="#2a2540"/></svg>
   </div>
-  <span class="tag">ORGANIZATIONS</span>
-  <h2>Where I show up</h2>
+  <h2>Organizations</h2>
   <div class="timeline">
     <div class="tl-item"><h3>FEU Alabang Junior Philippine Computer Society</h3><div class="sub">Member · Oct 2025 — Present</div></div>
     <div class="tl-item"><h3>Google Developer Student Clubs</h3><div class="sub">Member · Sep 2023 — Sep 2024</div></div>
@@ -769,22 +792,33 @@
 </section>
 
 <section class="contact-end fade-up" id="get-in-touch">
-  <span class="tag">GET IN TOUCH</span>
-  <h2 style="position:relative; display:inline-block;">Let's talk
+  <h2 style="position:relative; display:inline-block;">Contact
     <span class="fairy inline-fairy sleepy" style="top:-30px; right:-30px; --fs:30px; --fd:12s;" data-creature="fairy-7">
       <svg viewBox="0 0 64 64" fill="none" style="transform:rotate(100deg)"><path d="M18 20l6 10-6 10 10-6 10 6-6-10 6-10-10 6z" fill="var(--gold)" opacity=".7"/><circle cx="46" cy="30" r="3.4" fill="var(--star)"/><path d="M46 33c-1.6 5-1.6 11 0 17 1.6-6 1.6-12 0-17z" fill="var(--star)"/></svg>
       <span class="zzz">z z z</span>
     </span>
   </h2>
   <div class="links">
-    <a href="mailto:coleenaclaro@gmaill.com">Email</a>
+    <a href="mailto:coleenaclaro@gmail.com">Email</a>
     <a href="tel:+639171640475">+63 917 164 0475</a>
     <a href="https://www.linkedin.com/in/coleen-aclaro-4857a8381" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://github.com/cnaclaro?tab=repositories" target="_blank" rel="noopener">GitHub</a>
   </div>
-  <div class="cv-actions">
-    <a class="cv-btn" href="certs/Coleen-Aclaro-CV.pdf" download>Download CV ↓︎</a>
-    <button type="button" class="cv-preview-btn" id="cv-preview-btn">Preview CV ↗︎</button>
+  <div class="cv-split" role="group" aria-label="Resume downloads">
+    <div class="cv-half">
+      <span class="cv-label">CV <small>designed layout</small></span>
+      <div class="cv-ops">
+        <a class="cv-op" href="certs/Coleen-Aclaro-CV.pdf" download>Download</a>
+        <button type="button" class="cv-op" data-preview="certs/Coleen-Aclaro-CV.pdf">Preview</button>
+      </div>
+    </div>
+    <div class="cv-half">
+      <span class="cv-label">ATS resume <small>plain text, one column</small></span>
+      <div class="cv-ops">
+        <a class="cv-op" href="certs/Coleen-Aclaro-ATS-Resume.pdf" download>Download</a>
+        <button type="button" class="cv-op" data-preview="certs/Coleen-Aclaro-ATS-Resume.pdf">Preview</button>
+      </div>
+    </div>
   </div>
   <br>
   <a class="repo-badge" href="https://github.com/cnaclaro/Portfolio" target="_blank" rel="noopener" aria-label="View this site's source code on GitHub">
@@ -792,7 +826,7 @@
     <span class="gh-label">View source on GitHub ↗︎</span>
   </a>
 
-  <p class="signoff">thank you for visiting my sky ✦</p>
+  <p class="signoff">thanks for visiting</p>
 </section>
 
 </div>
@@ -1316,15 +1350,14 @@
   certLightboxPrevBtn.addEventListener('click', ()=>openCertAt(certLightboxIndex - 1));
   certLightboxNextBtn.addEventListener('click', ()=>openCertAt(certLightboxIndex + 1));
 
-  // CV preview: reuses the cert lightbox's PDF viewer for a single, non-navigable document
-  const cvPreviewBtn = document.getElementById('cv-preview-btn');
-  if(cvPreviewBtn){
-    cvPreviewBtn.addEventListener('click', ()=>{
+  // CV / ATS preview: reuses the cert lightbox's PDF viewer for a single, non-navigable document
+  document.querySelectorAll('[data-preview]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
       certLightboxPrevBtn.style.display = 'none';
       certLightboxNextBtn.style.display = 'none';
-      openPdfLightbox('certs/Coleen-Aclaro-CV.pdf');
+      openPdfLightbox(btn.dataset.preview);
     });
-  }
+  });
 
   // constellation lines connecting each project's stack tags, drawn on hover
   document.querySelectorAll('.stack-tags').forEach(group=>{
