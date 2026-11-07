@@ -18,7 +18,10 @@
 <meta name="twitter:image" content="https://cnaclaro.github.io/Portfolio/images/portrait.jpg">
 <meta name="theme-color" content="#f2f1ed">
 <meta name="color-scheme" content="light">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230c0c0c'/%3E%3Cpath d='M32 8l5 19 19 5-19 5-5 19-5-19-19-5 19-5z' fill='%23f6d0da'/%3E%3C/svg%3E">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="alternate icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
@@ -71,8 +74,10 @@
   /* ---------- nav ---------- */
   .nav{position:fixed; top:0; left:0; right:0; z-index:100; padding:14px 0; background:var(--paper); border-bottom:1.5px solid var(--ink);}
   .nav-in{max-width:1240px; margin:0 auto; padding:0 32px; display:flex; justify-content:space-between; align-items:center; gap:16px;}
-  .logo{ font-family:var(--serif); font-size:1.55rem; font-weight:500; text-decoration:none; letter-spacing:-.02em; background:var(--paper); border:1.5px solid var(--ink); padding:5px 14px 6px; line-height:1;}
-  .logo sup{font-size:.55em; margin-left:2px;}
+  .logo{display:flex; align-items:center; gap:11px; text-decoration:none; font-family:var(--serif); font-size:1.3rem; letter-spacing:-.015em; line-height:1;}
+  .logo svg{width:40px; height:40px; display:block; transition:transform .3s cubic-bezier(.3,1.9,.5,1);}
+  .logo:hover svg{transform:rotate(-12deg) scale(1.08);}
+  .logo:hover span{font-style:italic;}
   .links{ display:flex; background:var(--paper); border:1.5px solid var(--ink);}
   .links a{padding:9px 16px; font-size:.88rem; font-weight:500; text-decoration:none; line-height:1.2; border-right:1.5px solid var(--ink);}
   .links a:last-child{border-right:0;}
@@ -105,8 +110,14 @@
   .btn.ghost:hover > span{background:var(--blue);}
 
   .stage{position:relative; margin-top:auto; padding-top:24px; height:clamp(260px,40vh,420px);}
-  .portrait{position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:min(470px,72vw); height:calc(100% - 20px); overflow:hidden; z-index:1; cursor:pointer;}
-  .portrait img{width:100%; height:auto; filter:drop-shadow(6px 6px 0 var(--ink));}
+  .portrait{padding:0; border:0; background:none; display:block; font:inherit; position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:min(470px,72vw); height:calc(100% - 20px); overflow:hidden; z-index:1; cursor:pointer;}
+  .portrait img{width:100%; height:auto; filter:drop-shadow(0 8px 14px rgba(12,12,12,.22));}
+
+  /* paper crumple animation (photo tap) */
+  .paper{position:absolute; z-index:4; pointer-events:none; will-change:transform;}
+  .paper .leaf{position:absolute; inset:0; overflow:hidden;}
+  .paper .leaf img{position:absolute; left:0; top:0; width:100%; height:auto; max-width:none; filter:drop-shadow(0 8px 14px rgba(12,12,12,.22));}
+  .paper .ball{position:absolute; left:50%; top:50%; opacity:0; filter:drop-shadow(5px 5px 0 var(--ink)); max-width:none;}
   .layer{position:absolute; inset:0; z-index:2; pointer-events:none;}
   .stk{position:absolute; pointer-events:auto; filter:drop-shadow(5px 5px 0 var(--ink)); transform:translate(var(--dx,0px),var(--dy,0px)) rotate(var(--rot,0deg)); touch-action:none; cursor:grab; user-select:none; -webkit-user-select:none;}
   .stk.drag{cursor:grabbing; z-index:5;}
@@ -284,6 +295,7 @@
   }
   @media (max-width:900px){
     .links,.nav-cta{display:none;}
+    .logo span{font-size:1.15rem;}
     .menu-btn{display:block;}
     .wrap,.nav-in{padding:0 20px;}
     section{padding-top:76px;}
@@ -328,7 +340,7 @@
 
 <header class="nav">
   <div class="nav-in">
-    <a class="logo" href="#top" aria-label="Back to top">C.A.<sup>©</sup></a>
+    <a class="logo" href="#top" aria-label="Coleen Aclaro — back to top"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M0 0H50L64 14V64H14L0 50Z" fill="#0c0c0c"/><path d="M46.37,20.49 A19.5 19.5 0 1 0 46.37,44.51 L39.27,38.96 A10.5 10.5 0 1 1 39.27,26.04 Z" fill="#f2f1ed"/><rect x="41" y="28.5" width="8" height="8" fill="#f6d1db"/></svg><span>Coleen Aclaro</span></a>
     <nav class="links" aria-label="Sections">
       <a href="#about" data-sec="about">About</a>
       <a href="#work" data-sec="work">Work</a>
@@ -373,7 +385,7 @@
       <div class="stk s3"><span class="stk-in"><b>4th year BSIT</b><small>FEU Alabang</small></span></div>
       <div class="stk s4"><span class="stk-in"><b>Open to OJT</b><small>Santa Rosa, PH</small></span></div>
     </div>
-    <div class="portrait" id="portrait"><img src="images/portrait-cutout.png" alt="Coleen Aclaro" width="994" height="949"></div>
+    <button type="button" class="portrait" id="portrait" aria-label="Coleen Aclaro — tap the photo to crumple it" title="Tap me"><img src="images/portrait-cutout.png" alt="" width="994" height="949"></button>
   </div>
 
   <div class="ticker" aria-hidden="true">
@@ -386,7 +398,7 @@
   <div class="wrap">
     <div class="head"><span class="no">①</span><h2>About <em>me</em></h2></div>
     <div class="about-grid">
-      <p class="statement">I'm currently in my <mark class="m-blue">4th year of college</mark>. I went to GFIS from Grade 7 all the way to Grade 12, so I've basically been in school forever at this point. I like reading, especially <mark class="m-pink">really long books</mark>, and I can easily get lost in a good story for hours. Right now, I'm just trying to survive my last year of college and hopefully make it to <mark class="m-green">graduation in one piece.</mark></p>
+      <p class="statement">I'm currently in my <mark class="m-blue">4th year of college</mark>. I went to GFIS from Grade 7 all the way to Grade 12, so I've basically been in school forever at this point. I like reading — especially <mark class="m-pink">really long books</mark> — and I can easily get lost in a good story for hours. Right now, I'm just trying to survive my last year of college and hopefully make it to <mark class="m-green">graduation in one piece.</mark></p>
       <div>
         <dl class="facts">
           <div><dt>Studying</dt><dd>BS Information Technology</dd></div>
@@ -489,10 +501,8 @@
       <div>
         <h3>Education</h3>
         <ul class="tl">
-          <li><span class="when">Aug 2023 — Present</span><div class="what">FEU Alabang</div><div class="what-sub">Bachelor of Science in Information Technology</div></li>
-          <li><span class="when">April 16, 2026</span><div class="what"><button type="button" class="linklike" data-open="cert-deans-lister">Dean's Lister (Bronze)</button></div><div class="what-sub">2TSY2526 · FEU Alabang Registrar's Office</div></li>
-          <li><span class="when">Sep 2017 — Feb 2023</span><div class="what">Green Fields Integrated School of Laguna</div><div class="what-sub">General Academic Strand</div></li>
-          <li><span class="when">February 1, 2023</span><div class="what"><button type="button" class="linklike" data-open="cert-with-honors">With Honors</button></div><div class="what-sub">Senior High School · Green Fields Integrated School of Laguna</div></li>
+          <li><span class="when">April 16, 2026</span><div class="what"><button type="button" class="linklike" data-open="cert-deans-lister">Dean's Lister (Bronze)</button></div><div class="what-sub">2TSY2526 · FEU Alabang · BS Information Technology · Aug 2023 — Present</div></li>
+          <li><span class="when">February 1, 2023</span><div class="what"><button type="button" class="linklike" data-open="cert-with-honors">With Honors</button></div><div class="what-sub">Green Fields Integrated School of Laguna · General Academic Strand · Sep 2017 — Feb 2023</div></li>
         </ul>
       </div>
       <div>
@@ -613,7 +623,97 @@
   });
   var badge = document.getElementById('badge');
   badge.addEventListener('click', function(){ var r = badge.getBoundingClientRect(); burst(r.left + r.width/2, r.top + r.height/2, 30); });
-  document.getElementById('portrait').addEventListener('click', function(e){ burst(e.clientX, e.clientY, 22); });
+  // ---- portrait: tap to crumple, throw aside, come back creased ----
+  (function(){
+    var portrait = document.getElementById('portrait'), pimg = portrait.querySelector('img'), stage = document.querySelector('.stage');
+    var IMGS = ['images/portrait-cutout.png','images/portrait-creased-1.png','images/portrait-creased-2.png'], HEAVY = 'images/portrait-crumpled.png', BALL = 'images/paper-ball.png';
+    IMGS.concat(HEAVY, BALL).forEach(function(u){ var i = new Image(); i.src = u; });
+    var RAG = [0.762, 0.947, 0.915, 0.928, 0.961, 0.841, 0.813, 0.896, 0.896, 0.924, 0.873, 0.887, 0.933, 0.882, 0.827, 0.785, 0.781, 0.864, 0.85, 0.873, 0.928, 0.744, 0.915, 0.864], N = RAG.length, level = 0, busy = false;
+    function wait(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+    function pts(W, H, R){
+      var cx = W / 2, cy = H / 2;
+      return 'polygon(' + RAG.map(function(f, i){
+        var a = i / N * Math.PI * 2, c = Math.cos(a), s = Math.sin(a), x, y;
+        if(R){ x = cx + c * R * f; y = cy + s * R * f; }
+        else { var t = Math.min(Math.abs(c) > 1e-6 ? cx / Math.abs(c) : 1e9, Math.abs(s) > 1e-6 ? cy / Math.abs(s) : 1e9); x = cx + c * t; y = cy + s * t; }
+        return x.toFixed(1) + 'px ' + y.toFixed(1) + 'px';
+      }).join(',') + ')';
+    }
+    function T(x, y, rot, sc){ return 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) rotate(' + rot + 'deg) scale(' + sc + ')'; }
+    function go(el, frames, ms){ return el.animate(frames, {duration: ms, fill: 'forwards'}).finished; }
+
+    async function crumple(){
+      if(busy) return; busy = true;
+      var next = Math.min(level + 1, 2);
+      if(reduce){ pimg.src = IMGS[next]; level = next; busy = false; return; }
+      var pr = portrait.getBoundingClientRect(), sr = stage.getBoundingClientRect();
+      var W = pr.width, H = pr.height, L = pr.left - sr.left, Tp = pr.top - sr.top;
+      var R = Math.min(W, H) / 2 * .97, sc = Math.min(.5, 64 / R), rEnd = R * sc;
+      var paper = document.createElement('div'); paper.className = 'paper';
+      paper.style.cssText = 'left:' + L + 'px;top:' + Tp + 'px;width:' + W + 'px;height:' + H + 'px';
+      paper.innerHTML = '<div class="leaf"><img class="a" alt="" src="' + IMGS[level] + '"><img class="b" alt="" src="' + IMGS[next] + '" style="opacity:0"><img class="c" alt="" src="' + HEAVY + '" style="opacity:0"></div><img class="ball" alt="" src="' + BALL + '">';
+      var leaf = paper.querySelector('.leaf'), ia = paper.querySelector('.a'), ib = paper.querySelector('.b'), ic = paper.querySelector('.c'), ball = paper.querySelector('.ball');
+      ball.style.width = ball.style.height = (R * 2) + 'px'; ball.style.margin = (-R) + 'px 0 0 ' + (-R) + 'px';
+      stage.appendChild(paper); portrait.style.visibility = 'hidden';
+      var rect = pts(W, H), blob = pts(W, H, R);
+
+      // 1. creases form across the photo first; the outline stays put
+      var A1 = 760;
+      go(ib, [{opacity: 0}, {opacity: 1}], A1 * .5);
+      go(ic, [{opacity: 0}, {opacity: 0, offset: .4}, {opacity: 1}], A1);
+      await go(paper, [
+        {transform: T(0,0,0,1)},
+        {transform: T(-3,1,-1.5,.985), offset: .2},
+        {transform: T(3,-1,1.5,.97), offset: .4},
+        {transform: T(-2,2,-2,.95), offset: .65},
+        {transform: T(1,0,1,.93)}
+      ], A1);
+      // 2. then the whole sheet wads inward into a plain paper ball
+      var A2 = 560;
+      go(leaf, [{clipPath: rect, opacity: 1}, {clipPath: blob, opacity: 1, offset: .75}, {clipPath: blob, opacity: 1, offset: .97}, {clipPath: blob, opacity: 0}], A2);
+      go(ball, [{opacity: 0}, {opacity: 0, offset: .35}, {opacity: 1, offset: .7}, {opacity: 1}], A2);
+      await go(paper, [
+        {transform: T(1,0,1,.93)},
+        {transform: T(0,0,-12,.7), offset: .55},
+        {transform: T(0,0,34,sc)}
+      ], A2);
+
+      // 2. throw it aside: arc, spin, two bounces
+      var cx0 = L + W / 2, cy0 = Tp + H / 2, side = Math.random() < .5 ? -1 : 1;
+      var off = Math.min(sr.width / 2 - rEnd - 14, W / 2 + rEnd + 90);
+      var dx = side * off, dy = Math.max(10, (sr.height - rEnd - 4) - cy0);
+      await go(paper, [
+        {transform: T(0,0,34,sc), easing: 'cubic-bezier(.2,.7,.4,1)'},
+        {transform: T(dx * .5, -150, 280, sc), offset: .4, easing: 'cubic-bezier(.6,0,.9,.5)'},
+        {transform: T(dx * .94, dy, 500, sc), offset: .72, easing: 'ease-out'},
+        {transform: T(dx * .975, dy - 32, 530, sc), offset: .85, easing: 'ease-in'},
+        {transform: T(dx, dy, 560, sc)}
+      ], 1000);
+      await wait(3400);
+
+      // 3. come back
+      await go(paper, [
+        {transform: T(dx, dy, 560, sc), easing: 'cubic-bezier(.2,.7,.4,1)'},
+        {transform: T(dx * .45, -190, 680, sc), offset: .5, easing: 'cubic-bezier(.6,0,.9,.5)'},
+        {transform: T(0, 0, 754, sc)}
+      ], 1100);
+
+      // 4. unfurl: the ball opens back out into the photo, creases left in it
+      ia.style.opacity = 0; ib.style.opacity = 1; ic.style.opacity = 0;
+      go(leaf, [{clipPath: blob, opacity: 0}, {clipPath: blob, opacity: 1, offset: .14}, {clipPath: blob, opacity: 1, offset: .2}, {clipPath: rect, opacity: 1}], 900);
+      go(ball, [{opacity: 1}, {opacity: 1, offset: .16}, {opacity: 0, offset: .5}, {opacity: 0}], 900);
+      await go(paper, [
+        {transform: T(0,0,754,sc), easing: 'cubic-bezier(.3,1.5,.6,1)'},
+        {transform: T(0,0,712,1.1), offset: .55, easing: 'ease-in-out'},
+        {transform: T(0,0,722,.975), offset: .8, easing: 'ease-out'},
+        {transform: T(0,0,720,1)}
+      ], 900);
+
+      pimg.src = IMGS[next]; level = next;
+      portrait.style.visibility = ''; paper.remove(); busy = false;
+    }
+    portrait.addEventListener('click', crumple);
+  })();
 
   // ---- name: letters pop when touched ----
   var nameEl = document.getElementById('name'), PASTEL = ['#cfe3f1','#d0e9d7','#f8d8bc','#f6d1db'];
